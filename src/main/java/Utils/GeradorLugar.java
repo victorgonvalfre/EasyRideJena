@@ -5,10 +5,45 @@
  */
 package Utils;
 
+import Model.Lugar;
+import com.hp.hpl.jena.query.QuerySolution;
+import com.hp.hpl.jena.query.ResultSet;
+import com.hp.hpl.jena.rdf.model.Literal;
+
 /**
  *
  * @author Victor
  */
 public class GeradorLugar {
+    public Lugar lugar;
+    
+    public Lugar gerarLugar(EnumLocais localenum){
+        PesquisadorDBpedia pesquisador = new PesquisadorDBpedia();
+        
+        lugar = new Lugar();
+        lugar.nome = localenum.toString();
+        this.tratarResultSet(pesquisador.pesquisarCidade(localenum.valueDBpedia));
+        
+        
+        
+        
+        return lugar;
+    }
+    
+    public void tratarResultSet(ResultSet resultado){
+       
+        while(resultado.hasNext()){
+           QuerySolution qs = resultado.next();
+           qs.getLiteral("descricao");
+           
+           
+           Literal albumName = qs.getLiteral("descricao");
+           Literal artistName = qs.getLiteral("pages");
+			
+            System.out.println(albumName+"--"+artistName);
+       }
+        
+    }
+    
     
 }

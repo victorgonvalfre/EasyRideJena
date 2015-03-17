@@ -16,7 +16,7 @@ import java.util.Random;
  */
 public enum EnumLocais {
     
-    Vitoria("Vitória,_Espírito_Santo"), Linhares("Linhares"), CachoeiroItapemirim("Cachoeiro_de_Itapemirim"), Colatina("Colatina"), Serra("Serra,_Espírito_Santo");
+    Vitoria("Vit%C3%B3ria,_Esp%C3%ADrito_Santo"), Linhares("Linhares"), CachoeiroItapemirim("Cachoeiro_de_Itapemirim"), Colatina("Colatina"), Serra("Serra,_Esp%C3%ADrito_Santo"), Guarapari("Guarapari");
 
     
   private static final List<EnumLocais> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
@@ -26,6 +26,11 @@ public enum EnumLocais {
   public static EnumLocais randomModelo()  {
     return VALUES.get(RANDOM.nextInt(SIZE));
   }
+  
+  public static EnumLocais getLocalByOrder(int pos){
+      return VALUES.get(pos);
+  }
+  
     public  String valueDBpedia;
 
     private EnumLocais(String DBpediaValue){

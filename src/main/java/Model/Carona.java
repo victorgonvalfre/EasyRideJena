@@ -82,6 +82,11 @@ public class Carona {
         this.lstDestinos.add(lugar);
     }
 
+    
+    public String getID(){
+        
+        return this.motorista.getPessoa().getNome() + this.veiculo.getModelo() + this.getVagas();
+    }
 
 }
 

@@ -8,6 +8,7 @@ package Controler;
 import DAO.DAOMotorista;
 import DAO.DAOPessoa;
 import DAO.DAOVeiculo;
+import Model.Lugar;
 import Model.Motorista;
 import Model.Pessoa;
 import Model.Veiculo;
@@ -69,6 +70,16 @@ public class EasyRideApp {
         
         daoMotor.insert(motorista);
         Motorista motorBanco = daoMotor.findAll().get(0);
+        
+        
+        System.out.println("----->  Quarto PASSO: CRIAR E BAIXAR OS DADOS DO DBPEDIA DOS DESTINOS");
+        System.out.println("Quantos destinos deseja criar? (de 1 a 5)");
+        int quantDestinos = Integer.parseInt(scanner.nextLine());
+        
+        List<Lugar> lstDestinos = new ArrayList<Lugar>();
+        for(int x = 0; x < quantDestinos; x++){
+            
+        }
         
         
         System.out.println("----> Pessoas no banco --->");

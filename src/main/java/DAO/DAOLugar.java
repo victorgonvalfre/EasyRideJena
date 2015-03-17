@@ -32,7 +32,7 @@ public class DAOLugar extends DAOGeneric implements DAO<Lugar> {
                                          " (START WITH 1, INCREMENT BY 1) NOT NULL," +
 					 " name varchar(25)," +
 					 " descricao varchar(500)," +
-                                         " coordenadas varchar(40)," +
+                                         " site varchar(200)," +
 					 " PRIMARY KEY (ID) )";
 
 			this.execute(sql);
@@ -48,8 +48,8 @@ public class DAOLugar extends DAOGeneric implements DAO<Lugar> {
 		try{
 			this.openConnection();
 
-			String sql = "INSERT INTO Lugar (name, descricao, coordenadas)"
-					+ " VALUES ('" + obj.getNome() + "', '" + obj.getDescricao()+ "', '"+obj.coordenadas+"' )";
+			String sql = "INSERT INTO Lugar (name, descricao, site)"
+					+ " VALUES ('" + obj.getNome() + "', '" + obj.getDescricao()+ "', '"+obj.getSite()+"' )";
 
 			int id = this.executeUpdate(sql);
 
@@ -71,7 +71,7 @@ public class DAOLugar extends DAOGeneric implements DAO<Lugar> {
         String sql = "UPDATE Lugar"
                 + " SET name = '" + obj.getNome()
                 + "' , descricao = '" + obj.getDescricao()
-                + "' , coordenadas = '" + obj.getCoordenadas()
+                + "' , site = '" + obj.getSite()
                 + "' Where ID = " + obj.getId();
 
         // System.out.println(sql);
@@ -141,7 +141,7 @@ public class DAOLugar extends DAOGeneric implements DAO<Lugar> {
             
             j.setDescricao(rs.getString("descricao"));
       
-            j.setCoordenadas(rs.getString("coordenadas"));
+            j.setSite(rs.getString("site"));
             
             jogadoreslist.add(j);
         }
