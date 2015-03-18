@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:j.0="http://www.trabalho2ws.com/carona-rdf/1.0#" > 
+  <rdf:Description rdf:nodeID="A0">
+    <j.0:DESCRICAO>Cachoeiro de Itapemirim (local Portuguese pronunciation: [ka?u?e(j)?u ?d?i?tapemi???j]) is a municipality and a major town, located in the south of Espírito Santo, Brazil, on the banks of the Itapemirim River. It is the economic hub of southern Espírito Santo, being the most important producer of marble and granite in Brazil. Home to one of the biggest intercity bus companies, it is a very well-connected city. The population is about 210,000. Location: 164km south of Vitória.The city is served by Cachoeiro de Itapemirim Airport.@en</j.0:DESCRICAO>
+    <j.0:NOMELOCAL>CachoeiroItapemirim</j.0:NOMELOCAL>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A1">
+    <j.0:DESCRICAO>Cachoeiro de Itapemirim (local Portuguese pronunciation: [ka?u?e(j)?u ?d?i?tapemi???j]) is a municipality and a major town, located in the south of Espírito Santo, Brazil, on the banks of the Itapemirim River. It is the economic hub of southern Espírito Santo, being the most important producer of marble and granite in Brazil. Home to one of the biggest intercity bus companies, it is a very well-connected city. The population is about 210,000. Location: 164km south of Vitória.The city is served by Cachoeiro de Itapemirim Airport.@en</j.0:DESCRICAO>
+    <j.0:NOMELOCAL>CachoeiroItapemirim</j.0:NOMELOCAL>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A2">
+    <j.0:VAGAS>4</j.0:VAGAS>
+    <j.0:MODEL>Corola</j.0:MODEL>
+    <j.0:PLACA>who1258</j.0:PLACA>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A3">
+    <j.0:TELL>34297281</j.0:TELL>
+    <j.0:ENDRECO>1797 Schwallie Crescent</j.0:ENDRECO>
+    <j.0:EMAIL>rparker@hotma1l.us</j.0:EMAIL>
+    <j.0:NOME>Lindsey Craft</j.0:NOME>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A4">
+    <j.0:CNH>839174078</j.0:CNH>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A5">
+    <j.0:TELL>14956551</j.0:TELL>
+    <j.0:ENDRECO>1786 Potts Road</j.0:ENDRECO>
+    <j.0:EMAIL>writecame@somema1l.biz</j.0:EMAIL>
+    <j.0:NOME>Leroy Avery</j.0:NOME>
+  </rdf:Description>
+  <rdf:Description rdf:about="Http://www.EasyRide.br/Lindsey CraftCorola0">
+    <j.0:PESSOAPASSAGEIRO rdf:nodeID="A5"/>
+    <j.0:LOCALDESTINO rdf:nodeID="A6"/>
+    <j.0:LOCALDESTINO rdf:nodeID="A1"/>
+    <j.0:LOCALSAIDA rdf:nodeID="A0"/>
+    <j.0:PESSOAMOTORISTA rdf:nodeID="A3"/>
+    <j.0:CARRO rdf:nodeID="A2"/>
+    <j.0:PESSOAMOTORISTA rdf:nodeID="A4"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A6">
+    <j.0:DESCRICAO>Colatina is the second largest city in the north of Espírito Santo, Brazil, 127 km north of the capital Vitória and on the trainline from Vitória to Minas Gerais. It lies on the banks of the Doce river, through which as much as 700 cubic meters of water per second may flow. Its population was 120,677 (2013) and its area is 1,423 km².@en</j.0:DESCRICAO>
+    <j.0:NOMELOCAL>Colatina</j.0:NOMELOCAL>
+  </rdf:Description>
+</rdf:RDF>

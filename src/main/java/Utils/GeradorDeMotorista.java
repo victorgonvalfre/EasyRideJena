@@ -18,13 +18,13 @@ import org.fluttercode.datafactory.impl.DataFactory;
  */
 public class GeradorDeMotorista {
     
-    public Motorista gerarMotorista(List<Pessoa> lstPessoa, List<Veiculo> lstCarros){
+    public Motorista gerarMotorista(Pessoa motorista, Veiculo carro){
         DataFactory df = new DataFactory();
         Motorista motor = new Motorista();
         
-        motor.pessoa = lstPessoa.get(0);
+        motor.pessoa = motorista;
         motor.cnh = df.getNumberText(9);
-        motor.veiculo = lstCarros.get(0);
+        motor.veiculo = carro;
         
         return motor;
     }

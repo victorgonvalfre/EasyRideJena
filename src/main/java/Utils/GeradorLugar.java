@@ -22,28 +22,11 @@ public class GeradorLugar {
         
         lugar = new Lugar();
         lugar.nome = localenum.toString();
-        this.tratarResultSet(pesquisador.pesquisarCidade(localenum.valueDBpedia));
-        
-        
-        
-        
+        lugar.descricao = pesquisador.pesquisarCidade(localenum.valueDBpedia);
+
         return lugar;
     }
     
-    public void tratarResultSet(ResultSet resultado){
-       
-        while(resultado.hasNext()){
-           QuerySolution qs = resultado.next();
-           qs.getLiteral("descricao");
-           
-           
-           Literal albumName = qs.getLiteral("descricao");
-           Literal artistName = qs.getLiteral("pages");
-			
-            System.out.println(albumName+"--"+artistName);
-       }
-        
-    }
-    
+
     
 }

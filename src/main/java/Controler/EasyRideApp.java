@@ -5,16 +5,21 @@
  */
 package Controler;
 
+import DAO.DAOLugar;
 import DAO.DAOMotorista;
 import DAO.DAOPessoa;
 import DAO.DAOVeiculo;
+import Model.Carona;
 import Model.Lugar;
 import Model.Motorista;
 import Model.Pessoa;
 import Model.Veiculo;
+import Utils.EnumLocais;
 import Utils.GeradorDeCarros;
 import Utils.GeradorDeMotorista;
 import Utils.GeradorDePessoas;
+import Utils.GeradorLugar;
+import Utils.GeradorRDF;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -23,7 +28,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Jair
+ * @author Victor
  */
 public class EasyRideApp {
     Scanner scanner = new Scanner(System.in);
@@ -33,53 +38,30 @@ public class EasyRideApp {
         GeradorDeCarros geradorCarro = new GeradorDeCarros();
         List<Pessoa> lstUsers = new ArrayList<Pessoa>();
         List<Veiculo> lstCarros = new ArrayList<Veiculo>();
+        List<Carona> lstCaronaToRDF = new ArrayList<Carona>();
         
+        CaronaMaker caronaMaker = new CaronaMaker();
+        Carona carona = caronaMaker.montarCarona();
+        lstCaronaToRDF.add(carona);
         
-        System.out.println("----->  PRIMEIRO PASSO: CRIAR AS PESSOAS");
-        System.out.println("Quantos Pessoas Deseja criar?");
-        int quantUsuarios = Integer.parseInt(scanner.nextLine());
-        
-        lstUsers = gerador.gerarUsuarios(quantUsuarios);
-        
-        
+   
+        //PESSOA
         DAOPessoa dao = new DAOPessoa();
-        for(Pessoa pessoa: lstUsers){
-            dao.insert(pessoa);
-        }
-        
         List<Pessoa> lstbanco = dao.findAll();
         
-        System.out.println("----->  SEGUNDO PASSO: CRIAR OS VEICULOS");
-        System.out.println("Quantos Veiculos Deseja criar?");
-        
-        int quantVeiculos = Integer.parseInt(scanner.nextLine());
-        
-        lstCarros = geradorCarro.gerarCarros(quantVeiculos);
-        
-        DAOVeiculo daoCar = new DAOVeiculo();
-        for(Veiculo carro: lstCarros){
-            daoCar.insert(carro);
-        }
-        
+        //CARRO
+        DAOVeiculo daoCar = new DAOVeiculo(); 
         List<Veiculo> lstbancoCar = daoCar.findAll();
         
-        System.out.println("----->  Terceiro PASSO: CRIAR O MOTORISTAS DA CARONA");
-        GeradorDeMotorista geradorMotor = new GeradorDeMotorista();
+        //Motorista
         DAOMotorista daoMotor = new DAOMotorista();
-        Motorista motorista = geradorMotor.gerarMotorista(lstbanco, lstCarros);
-        
-        daoMotor.insert(motorista);
         Motorista motorBanco = daoMotor.findAll().get(0);
         
         
-        System.out.println("----->  Quarto PASSO: CRIAR E BAIXAR OS DADOS DO DBPEDIA DOS DESTINOS");
-        System.out.println("Quantos destinos deseja criar? (de 1 a 5)");
-        int quantDestinos = Integer.parseInt(scanner.nextLine());
+         //Lugar
+//        DAOLugar daolugar = new DAOLugar();
+//        List<Lugar> lstbancolugar = daolugar.findAll();
         
-        List<Lugar> lstDestinos = new ArrayList<Lugar>();
-        for(int x = 0; x < quantDestinos; x++){
-            
-        }
         
         
         System.out.println("----> Pessoas no banco --->");
@@ -96,11 +78,18 @@ public class EasyRideApp {
         System.out.println("----> Motoristas no banco --->");
         System.out.println(motorBanco.toString());
         
+        
+//           System.out.println("----> Destinos no banco --->");
+//        for(Lugar banco : lstbancolugar){
+//            System.out.println(banco.toString());
+//        }
+        
 //        for(Pessoa users: lstUsers){
 //            System.out.println(users.toString());
 //        }
-//        GeradorRdf rdfGerador = new GeradorRdf();
-//        rdfGerador.gerarRdf(lstUsers);
+        
+        GeradorRDF rdfGerador = new GeradorRDF();
+        rdfGerador.gerarRdf(lstCaronaToRDF);
     }
     
 }

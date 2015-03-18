@@ -12,8 +12,7 @@ package Model;
 public class Lugar extends Model{
     public String nome;
     public String descricao;
-    public String siteExemplo;
-
+  
     public String getNome() {
         return nome;
     }
@@ -30,17 +29,9 @@ public class Lugar extends Model{
         this.descricao = descricao;
     }
 
-    public String getSite() {
-        return this.siteExemplo;
-    }
-
-    public void setSite(String site) {
-        this.siteExemplo = site;
-    }
-
     
     @Override
     public String toString() {
-        return "Lugar{" + "nome=" + nome + ", descricao=" + descricao + ", site=" + this.siteExemplo + '}';
+        return "Lugar{" + "nome=" + nome + ", descricao=" + descricao +"}";
     }
 }

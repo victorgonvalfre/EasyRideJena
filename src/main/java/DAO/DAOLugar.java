@@ -6,7 +6,6 @@
 package DAO;
 
 import Model.Lugar;
-import Model.Pessoa;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -32,7 +31,6 @@ public class DAOLugar extends DAOGeneric implements DAO<Lugar> {
                                          " (START WITH 1, INCREMENT BY 1) NOT NULL," +
 					 " name varchar(25)," +
 					 " descricao varchar(500)," +
-                                         " site varchar(200)," +
 					 " PRIMARY KEY (ID) )";
 
 			this.execute(sql);
@@ -48,8 +46,8 @@ public class DAOLugar extends DAOGeneric implements DAO<Lugar> {
 		try{
 			this.openConnection();
 
-			String sql = "INSERT INTO Lugar (name, descricao, site)"
-					+ " VALUES ('" + obj.getNome() + "', '" + obj.getDescricao()+ "', '"+obj.getSite()+"' )";
+			String sql = "INSERT INTO Lugar (name, descricao)"
+					+ " VALUES ('" + obj.getNome() + "', '" + obj.getDescricao()+ "' )";
 
 			int id = this.executeUpdate(sql);
 
@@ -71,7 +69,6 @@ public class DAOLugar extends DAOGeneric implements DAO<Lugar> {
         String sql = "UPDATE Lugar"
                 + " SET name = '" + obj.getNome()
                 + "' , descricao = '" + obj.getDescricao()
-                + "' , site = '" + obj.getSite()
                 + "' Where ID = " + obj.getId();
 
         // System.out.println(sql);
@@ -140,8 +137,6 @@ public class DAOLugar extends DAOGeneric implements DAO<Lugar> {
             j.setNome(rs.getString("name"));
             
             j.setDescricao(rs.getString("descricao"));
-      
-            j.setSite(rs.getString("site"));
             
             jogadoreslist.add(j);
         }

@@ -13,7 +13,6 @@ import java.util.List;
  */
 public class Carona {
     public Motorista motorista;
-    public Veiculo veiculo;
     private int vagas;
     public Lugar saida;
     public List<Lugar> lstDestinos;
@@ -25,14 +24,6 @@ public class Carona {
 
     public void setMotorista(Motorista motorista) {
         this.motorista = motorista;
-    }
-
-    public Veiculo getVeiculo() {
-        return veiculo;
-    }
-
-    public void setVeiculo(Veiculo veiculo) {
-        this.veiculo = veiculo;
     }
 
     public List<Pessoa> getLstPessoasParaCarona() {
@@ -47,9 +38,14 @@ public class Carona {
     public int getVagas() {
         return vagas;
     }
+    
+    public String getVagasString(){
+        this.vagas = this.motorista.veiculo.getVagas();
+     return Integer.toString(vagas);
+    }
 
     public void setVagas() {
-        this.vagas = this.veiculo.getVagas();
+        this.vagas = this.motorista.veiculo.getVagas();
     }
 
     public Lugar getSaida() {
@@ -85,7 +81,7 @@ public class Carona {
     
     public String getID(){
         
-        return this.motorista.getPessoa().getNome() + this.veiculo.getModelo() + this.getVagas();
+        return this.motorista.getPessoa().getNome() + this.motorista.getVeiculo().getModelo() + this.getVagas();
     }
 
 }
